@@ -1,0 +1,1096 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Oceanlink API and Swagger",
+    "description": "Getting started with Oceanlink API and Swagger and Swagger",
+    "termsOfService": "",
+    "contact": {
+      "email": "tovanmanh1998@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "host": "14.225.192.77:8104",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "tags": ["User"],
+        "description": "Login get accses token",
+        "parameters": [
+          {
+            "name": "user_name",
+            "in": "formData",
+            "description": "Tên đăng nhập",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "Mật khẩu",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/auth/reset-password": {
+      "post": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "user_name",
+            "in": "formData",
+            "description": "Tên đăng nhập",
+            "required": true,
+            "type": "string",
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/get-user-info/{userId}": {
+      "get": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/get-all-user": {
+      "get": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/get-list-select-sale": {
+      "get": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/set-device-token": {
+      "post": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "token",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/create-user": {
+      "post": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "avatar",
+            "in": "formData",
+            "type": "file"
+          },
+          {
+            "name": "first_name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "last_name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user_name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "position",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "employment_state",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/update-user": {
+      "post": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "avatar",
+            "in": "formData",
+            "type": "file"
+          },
+          {
+            "name": "first_name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "last_name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user_name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "position",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "employment_state",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/update-user-avatar": {
+      "post": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "avatar",
+            "in": "formData",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/get-customer-info/{customerId}": {
+      "get": {
+        "tags": ["Customer"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/get-all-customer": {
+      "get": {
+        "tags": ["Customer"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/create-customer": {
+      "post": {
+        "tags": ["Customer"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "address",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "callback_due_date",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "description": "format date yyyy-mm-dd => 2023-01-21",
+          },
+          {
+            "name": "care_progress",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "format": "textarea"
+          },
+          {
+            "name": "company_name",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "customer_name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "customer_source",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          {
+            "name": "deal_status",
+            "in": "formData",
+            "required": true,
+            "enum": [
+              "0"
+            ]
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "phone_number",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sale_user_id",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "id của bảng User",
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/update-customer": {
+      "put": {
+        "tags": ["Customer"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "address",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "callback_due_date",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "format": "date",
+            "description": "format date yyyy-mm-dd => 2023-01-21",
+          },
+          {
+            "name": "care_progress",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "format": "textarea"
+          },
+          {
+            "name": "company_name",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "customer_name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "customer_source",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          {
+            "name": "deal_status",
+            "in": "formData",
+            "required": true,
+            "enum": [
+              "0"
+            ]
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "phone_number",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sale_user_id",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "id của bảng User",
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/get-all-customer-budget": {
+      "get": {
+        "tags": ["Customer Budget"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/update-customer-budget": {
+      "put": {
+        "tags": ["Customer Budget"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "id",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "advance_amount",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
+            "name": "fee",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
+            "name": "fee_date",
+            "in": "formData",
+            "type": "varchar"
+          },
+          {
+            "name": "default_video_quantity",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
+            "name": "additional_video_quantity",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
+            "name": "additional_service_cost",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
+            "name": "additional_service_note",
+            "in": "formData",
+            "type": "varchar"
+          },
+          {
+            "name": "facebook_service_amount",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
+            "name": "tiktok_service_amount",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
+            "name": "google_service_amount",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
+            "name": "zalo_service_amount",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
+            "name": "last_update_date",
+            "in": "formData",
+            "type": "string",
+            "format": "date",
+            "description": "format date yyyy-mm-dd => 2023-01-21"
+          },
+          {
+            "name": "budget_per_day",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
+            "name": "status",
+            "in": "formData",
+            "type": "integer",
+            "enum": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "name": "ads_user_id",
+            "in": "formData",
+            "type": "integer",
+            "description": "id bảng User"
+          },
+          {
+            "name": "sale_user_id",
+            "in": "formData",
+            "type": "integer",
+            "description": "id bảng User"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/get-task-info/{taskId}": {
+      "get": {
+        "tags": ["Task"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/get-all-task": {
+      "get": {
+        "tags": ["Task"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/get-list-sub-task/{taskId}": {
+      "get": {
+        "tags": ["Sub Task"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/get-list-file-sub-task/{subTaskId}": {
+      "get": {
+        "tags": ["Sub Task"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "subTaskId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/get-sub-task-info/{subTaskId}": {
+      "get": {
+        "tags": ["Sub Task"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "subTaskId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/get-all-noti/{userId}": {
+      "get": {
+        "tags": ["Notification"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/update-noti-is-seen": {
+      "put": {
+        "tags": ["Notification"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "is_seen",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "default": "1"
+          },
+          {
+            "name": "noti_id",
+            "in": "formData",
+            "description": "id của bảng notification",
+            "required": true,
+            "type": "integer",
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    },
+    "/api/update-all-noti-seen": {
+      "put": {
+        "tags": ["Notification"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer accesToken"
+          },
+          {
+            "name": "user_id",
+            "in": "formData",
+            "description": "id của bảng users",
+            "required": true,
+            "type": "integer",
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "11": {
+            "description": "Failed"
+          },
+          "422": {
+            "description": "Validation request false"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "User",
+      "description": "Operations related to users"
+    },
+    {
+      "name": "Customer",
+      "description": "Operations related to customers"
+    },
+    {
+      "name": "Customer Budget",
+      "description": "Operations related to customer budget"
+    },
+    {
+      "name": "Task",
+      "description": "Operations related to task (project)"
+    },
+    {
+      "name": "Sub Task",
+      "description": "Operations related to sub task (project)"
+    },
+    {
+      "name": "Notification",
+      "description": "Operations related to notification (project)"
+    },
+    {
+      "name": "History",
+      "description": "Operations related to history (project)"
+    }
+  ],
+  "definitions": {}
+}

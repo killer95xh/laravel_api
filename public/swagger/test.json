@@ -1,0 +1,198 @@
+"/api/create-task": {
+  "post": {
+    "tags": ["Task"],
+    "description": "",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "in": "header",
+        "required": true,
+        "type": "string",
+        "default": "Bearer accesToken"
+      },
+      {
+        "name": "project_name",
+        "in": "formData",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "customer_id",
+        "in": "formData",
+        "required": true,
+        "type": "integer",
+        "description": "id bảng customer",
+      },
+      {
+        "name": "note",
+        "in": "formData",
+        "type": "string"
+      },
+      {
+        "name": "task_supervisor_user_id",
+        "in": "formData",
+        "required": true,
+        "type": "integer",
+        "description": "id bảng users"
+      },
+      {
+        "name": "priority_level",
+        "in": "formData",
+        "required": true,
+        "type": "string",
+        "enum": ["1", "2", "3", "4"]
+      },
+      {
+        "name": "contract_start_date",
+        "in": "formData",
+        "required": true,
+        "type": "string",
+        "format": "date",
+        "description": "format date yyyy-mm-dd => 2023-01-21",
+      },
+      {
+        "name": "contract_end_date",
+        "in": "formData",
+        "required": true,
+        "type": "string",
+        "format": "date",
+        "description": "format date yyyy-mm-dd => 2023-01-21",
+      },
+      {
+        "name": "check_create_sub_task",
+        "in": "formData",
+        "required": true,
+        "type": "boolean",
+        "description": "Có tạo công việc đầu tiên không?",
+      },
+      {
+        "name": "sub_task_name",
+        "in": "formData",
+        "type": "string",
+        "description": "Sử dụng khi check_create_sub_task = true"
+      },
+      {
+        "name": "sub_task_name",
+        "in": "formData",
+        "type": "string",
+        "description": "Sử dụng khi check_create_sub_task = true"
+      },
+      {
+        "name": "sub_task_name",
+        "in": "formData",
+        "type": "string",
+        "description": "Sử dụng khi check_create_sub_task = true"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK"
+      },
+      "11": {
+        "description": "Failed"
+      },
+      "422": {
+        "description": "Validation request false"
+      }
+    }
+  }
+},
+"/api/update-customer": {
+  "put": {
+    "tags": ["Task"],
+    "description": "",
+    "parameters": [
+      {
+        "name": "Authorization",
+        "in": "header",
+        "required": true,
+        "type": "string",
+        "default": "Bearer accesToken"
+      },
+      {
+        "name": "id",
+        "in": "formData",
+        "required": true,
+        "type": "integer"
+      },
+      {
+        "name": "address",
+        "in": "formData",
+        "type": "string"
+      },
+      {
+        "name": "callback_due_date",
+        "in": "formData",
+        "required": true,
+        "type": "string",
+        "format": "date",
+        "description": "format date yyyy-mm-dd => 2023-01-21",
+      },
+      {
+        "name": "care_progress",
+        "in": "formData",
+        "required": true,
+        "type": "string",
+        "format": "textarea"
+      },
+      {
+        "name": "company_name",
+        "in": "formData",
+        "type": "string"
+      },
+      {
+        "name": "customer_name",
+        "in": "formData",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "customer_source",
+        "in": "formData",
+        "required": true,
+        "type": "string",
+        "enum": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "name": "deal_status",
+        "in": "formData",
+        "required": true,
+        "enum": [
+          "0"
+        ]
+      },
+      {
+        "name": "email",
+        "in": "formData",
+        "type": "string"
+      },
+      {
+        "name": "phone_number",
+        "in": "formData",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "sale_user_id",
+        "in": "formData",
+        "required": true,
+        "type": "string",
+        "description": "id của bảng User",
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK"
+      },
+      "11": {
+        "description": "Failed"
+      },
+      "422": {
+        "description": "Validation request false"
+      }
+    }
+  }
+},
